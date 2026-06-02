@@ -1,0 +1,97 @@
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+@font-face {
+
+    font-family: "W95F";
+
+    src: url("../assets/font/W95F.otf");
+
+}
+
+.wallpaper {
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+
+    object-fit: fill;
+
+}
+
+.desktop {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: auto;
+    
+    background-size: 100% 100%;
+    
+    background-repeat: no-repeat;
+
+    background-position: center;
+}
+
+@media (max-width: 900px) {
+
+    .desktop {
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+    }
+
+}
+
+body {
+
+    font-family: "W95F";
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .desktop {
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        height: auto;
+
+        min-height: 100vh;
+
+    }
+
+    body {
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+    }
+
+}

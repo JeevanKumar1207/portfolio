@@ -1,0 +1,33 @@
+/* RESEARCH WINDOW */
+
+.research-window {
+
+    width: 420px;
+
+    height: 300px;
+
+    overflow: hidden;
+
+}
+
+#researchWindow .project-table-container {
+
+    width: 100%;
+
+    height: calc(100% - 30px);
+
+}
+
+#researchWindow .project-table {
+
+    width: 100%;
+
+    table-layout: fixed;
+
+}
+
+#researchWindow .project-table th:nth-child(4),
+#researchWindow .project-table td:nth-child(4) {
+    width: 55px;
+    text-align: center;
+}

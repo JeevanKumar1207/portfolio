@@ -1,0 +1,402 @@
+/* ABOUT WINDOW */
+
+.about-window {
+
+    width: 600px;
+    height: 370px;
+
+    position: absolute;
+
+    top: 120px;
+    left: 220px;
+
+    background: #c0c0c0;
+
+    display: none;
+
+    z-index: 500;
+
+}
+
+/* ABOUT BODY */
+
+.about-body {
+
+    display: flex;
+
+    gap: 16px;
+
+    padding: 14px;
+
+}
+
+/* LEFT SIDE */
+
+.profile-left {
+
+    width: 140px;
+    flex-shrink: 0;
+
+}
+
+/* AVATAR */
+
+.avatar {
+
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+
+}
+
+/* RIGHT SIDE */
+
+.profile-right {
+
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 10px;
+
+}
+
+/* TITLE */
+
+.profile-right h1 {
+
+    font-size: 22px;
+
+    margin-bottom: 6px;
+
+}
+
+/* SUBTITLE */
+
+.profile-title {
+
+    font-size: 16px;
+
+    margin-bottom: 16px;
+
+}
+
+/* INFO PANEL */
+
+.info-panel {
+
+    background: #dcdcdc;
+
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+
+    padding: 10px;
+
+    margin-bottom: 16px;
+
+}
+
+/* INFO ROW */
+
+.info-row {
+
+    display: grid;
+
+    grid-template-columns: 90px 20px 1fr;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+}
+
+/* LABEL */
+
+.label {
+
+    font-weight: bold;
+
+}
+
+/* BUTTON */
+
+.profile-btn {
+
+    height: 25px;
+    width: 170px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+
+    font-family: "W95F";
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+/* BUTTON PRESS */
+
+.profile-btn:active {
+
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+
+}
+
+#aboutCompactView {
+
+    display: flex;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.profile-link {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 5px;
+
+}
+
+.link-label {
+
+    font-weight: bold;
+
+    margin-bottom: 2px;
+
+}
+
+.profile-link a {
+
+    text-decoration: underline;
+
+    word-break: break-word;
+
+}
+
+/* DETAILED VIEW LAYOUT */
+
+.about-detailed-view {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(600px, 1fr)
+        minmax(200px, 300px)
+        minmax(300px, 1fr);
+
+    gap: 10px;
+
+    padding: 10px;
+
+    height: calc(100% - 20px);
+
+    box-sizing: border-box;
+
+}
+
+/* COLUMNS*/
+
+.about-detail-left,
+.about-detail-middle,
+.about-detail-right {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+/* PROFILE CARD */
+
+.about-profile-card {
+
+    display: grid;
+
+    grid-template-columns:
+        140px 1fr;
+
+    gap: 16px;
+
+    height: 350px;
+
+    background: #c0c0c0;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+/* COMMON CARD */
+
+.about-bottom-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+}
+
+.about-info-card {
+
+    background: #c0c0c0;
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+}
+
+/* CARD HEADER */
+
+.card-header {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding-bottom: 8px;
+
+    margin-bottom: 8px;
+
+    border-bottom: 1px solid #808080;
+
+}
+
+/* CARD BODY */
+
+.card-body {
+
+    line-height: 1.8;
+
+}
+
+/* LEFT COLUMN */
+
+#strengthCard {
+
+    height: 220px;
+
+}
+
+#domainCard {
+
+    height: 220px;
+
+}
+
+
+#languageCard {
+
+    height: 100px;
+
+}
+
+/* MIDDLE COLUMN */
+
+
+#toolCard {
+
+    height: 180px;
+
+}
+
+#frameworkCard {
+
+    height: 180px;
+
+}
+
+/* RIGHT COLUMN */
+
+#informationCard {
+
+    height: 100%;
+
+    min-height: 600px;
+
+}
+
+/* LIST STYLE */
+
+.card-body ul {
+
+    margin-left: 20px;
+
+    padding-left: 0;
+
+}
+
+.card-body li {
+
+    margin-bottom: 6px;
+
+}
+
+.about-list {
+
+    margin: 0;
+
+    padding-left: 20px;
+
+}
+
+.about-list li {
+
+    margin-bottom: 5px;
+
+}
+
+#aboutDetailedView {
+
+    background: #dcdcdc;
+
+    padding: 10px;
+
+}

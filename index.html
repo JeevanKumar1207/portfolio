@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JEEVAN OS</title>
+
+
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+
+
+    <link rel="stylesheet"
+          href="css/startup.css">
+
+    <link rel="stylesheet"
+          href="css/app_css/about.css">
+
+    <link rel="stylesheet"
+          href="css/app_css/project.css">
+
+    <link rel="stylesheet"
+          href="css/app_css/certificate.css">
+
+    <link rel="stylesheet"
+          href="css/app_css/research.css">
+
+    <link rel="stylesheet"
+          href="css/windows.css">
+
+    <link rel="stylesheet"
+          href="css/taskbar.css">
+
+    <link rel="stylesheet"
+          href="css/clock.css">
+
+    <link rel="stylesheet"
+          href="css/main.css">
+
+</head>
+
+<script src="js/app_js/about.js"></script>
+<script src="js/app_js/projects.js"></script>
+<script src="js/app_js/certificate.js"></script>
+<script src="js/app_js/research.js"></script>
+<script src="js/windows.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/taskbar.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/main.js"></script>
+<script src="js/startup.js"></script>
+<script src="js/resize-manager.js"></script>
+
+<body>
+
+    <div class="desktop">
+
+        <img src="assets/wallpaper/bg1.png"
+             class="wallpaper">
+
+    </div>
+
+    <div class="taskbar">
+
+        <button class="start-button"
+                onclick="toggleStartMenu()">
+
+            Start
+
+        </button>
+
+        <div class="start-menu"
+            id="startMenu">
+
+            <div class="start-menu-items">
+
+                <div class="start-item program-item"
+                    onclick="toggleProgramMenu()">
+
+                    Program
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="program-menu"
+            id="programMenu">
+
+            <div class="program-item-box"
+                onclick="openWindow('projectsWindow')">
+
+                Projects
+
+            </div>
+
+            <div class="program-item-box"
+                onclick="openWindow('aboutWindow')">
+
+                About Me
+
+            </div>
+
+            <div class="program-item-box"
+                onclick="openWindow('certificateWindow')">
+
+                Certificates
+
+            </div>
+
+            <div class="program-item-box"
+                onclick="openWindow('researchWindow')">
+
+                Research
+
+            </div>
+
+        </div>
+
+        <div class="task-items"></div>
+
+        <div class="taskbar-time">
+
+            <span id="clock"></span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="window projects-window"
+        id="projectsWindow">
+
+        <div class="window-header">
+
+            <span>
+                Projects
+            </span>
+
+            <div class="window-buttons">
+
+                <button onclick="minimizeWindow('projectsWindow')">
+
+                    _
+
+                </button>
+
+                <button onclick="closeWindow('projectsWindow')">
+
+                    X
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="projects-body">
+
+            <div id="projectTableView">
+
+                <div class="project-header">
+
+                    <span>
+
+                        Total Projects:
+
+                        <span id="totalProjects">
+
+                            0
+
+                        </span>
+
+                    </span>
+
+                    <div class="project-header-buttons">
+
+                        <button
+                            id="projectFavoriteBtn"
+                            class="favorite-btn"
+                            onclick="
+                                toggleFavorites(
+                                    'projectFavoriteBtn',
+                                    showFavoriteProjects,
+                                    filterProjects
+                                )
+                            ">
+
+                            See Favorites
+
+                        </button>
+
+                        <button class="detail-btn"
+                                onclick="openDetailedView()">
+
+                            Detail View
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="project-table-container">
+
+                    <table class="project-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    
+                                    No.
+
+                                </th>
+
+                                <th>
+                                    
+                                    Name
+                                
+                                </th>
+
+                                <th>
+
+                                    <select id="categoryFilter"
+                                            onchange="filterProjects()">
+
+                                        <option value="">
+
+                                            Category
+
+                                        </option>
+
+                                    </select>
+
+                                </th>
+
+                                <th>
+
+                                    <select id="statusFilter"
+                                            onchange="filterProjects()">
+
+                                        <option value="">
+
+                                            Status
+
+                                        </option>
+
+                                    </select>
+
+                                </th>
+
+                                <th>
+
+                                    <select id="yearFilter"
+                                            onchange="filterProjects()">
+
+                                        <option value="">
+
+                                            Year
+
+                                        </option>
+
+                                    </select>
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="projectTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div id="projectDetailedView">
+
+                <div class="category-navigation">
+
+                    <button class="back-button"
+                            onclick="closeDetailedView()">
+
+                        ◄
+
+                    </button>
+
+                    <div class="category-tabs"
+                        id="categoryTabs">
+
+                    </div>
+
+                </div>
+
+                <div class="category-projects"
+                    id="categoryProjects">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    
+
+    <div class="window about-window"
+        id="aboutWindow">
+
+        <div class="window-header">
+
+            <span>
+
+                About Me
+
+            </span>
+
+            <div class="window-buttons">
+
+                <button onclick="minimizeWindow('aboutWindow')">
+
+                    _
+            
+                </button>
+
+                <button onclick="closeWindow('aboutWindow')">
+
+                    X
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="about-body">
+
+            <div id="aboutCompactView">
+
+                <div class="profile-left">
+
+                    <img id="aboutAvatar"
+                        class="avatar">
+
+                    <div class="profile-links">
+
+                        <div class="profile-link">
+
+                            <span class="link-label">
+
+                                E-Mail
+
+                            </span>
+
+                            <a id="aboutEmail"
+                            href="#">
+
+                            </a>
+
+                        </div>
+
+                        <div class="profile-link">
+
+                            <span class="link-label">
+
+                                GitHub
+
+                            </span>
+
+                            <a id="aboutGithub"
+                            href="#"
+                            target="_blank">
+
+                            </a>
+
+                        </div>
+
+                        <div class="profile-link">
+
+                            <span class="link-label">
+
+                                HackerRank
+
+                            </span>
+
+                            <a id="aboutHackerRank"
+                            href="#"
+                            target="_blank">
+
+                            </a>
+
+                        </div>
+
+                        <div class="profile-link">
+
+                            <span class="link-label">
+
+                                LinkedIn
+
+                            </span>
+
+                            <a id="aboutLinkedIn"
+                            href="#"
+                            target="_blank">
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-right">
+
+                    <h1 id="aboutName"></h1>
+
+                    <p id="aboutTitle"
+                    class="profile-title"></p>
+
+                    <div class="info-panel">
+
+                        <div class="info-row">
+
+                            <span class="label">
+
+                                About Me
+
+                            </span>
+
+                            <span>
+
+                                :
+
+                            </span>
+
+                            <span id="aboutSummary">
+
+                            </span>
+
+                        </div>
+
+                        <div class="info-row">
+
+                            <span class="label">
+
+                                Location
+
+                            </span>
+
+                            <span>
+
+                                :
+
+                            </span>
+
+                            <span id="aboutLocation">
+
+                            </span>
+
+                        </div>
+
+                        <div class="info-row">
+
+                            <span class="label">
+
+                                Status
+
+                            </span>
+
+                            <span>
+
+                                :
+
+                            </span>
+
+                            <span id="aboutStatus">
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <button id="resumeButton"
+                            class="profile-btn">
+
+                        View Resume
+
+                    </button>
+
+                    <button id="profileButton"
+                            class="profile-btn"
+                            onclick="openAboutDetailedView()">
+
+                        View Full Profile...
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="aboutDetailedView"
+                class="about-detailed-view"
+                style="display:none;">
+
+                <div class="about-detail-left">
+
+                    <div class="about-profile-card">
+
+                        <div class="profile-left">
+
+                            <img id="detailAvatar"
+                                class="avatar">
+
+                            <div class="profile-links">
+
+                                <div class="profile-link">
+
+                                    <span class="link-label">
+
+                                        E-Mail
+
+                                    </span>
+
+                                    <a id="detailEmail"
+                                    href="#">
+
+                                    </a>
+
+                                </div>
+
+                                <div class="profile-link">
+
+                                    <span class="link-label">
+
+                                        GitHub
+
+                                    </span>
+
+                                    <a id="detailGithub"
+                                    href="#"
+                                    target="_blank">
+
+                                    </a>
+
+                                </div>
+
+                                <div class="profile-link">
+
+                                    <span class="link-label">
+
+                                        HackerRank
+
+                                    </span>
+
+                                    <a id="detailHackerRank"
+                                    href="#"
+                                    target="_blank">
+
+                                    </a>
+
+                                </div>
+
+                                <div class="profile-link">
+
+                                    <span class="link-label">
+
+                                        LinkedIn
+
+                                    </span>
+
+                                    <a id="detailLinkedIn"
+                                    href="#"
+                                    target="_blank">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="profile-right">
+
+                            <h1 id="detailName"></h1>
+
+                            <p id="detailTitle"
+                            class="profile-title"></p>
+
+                            <div class="info-panel">
+
+                                <div class="info-row">
+
+                                    <span class="label">
+
+                                        About Me
+
+                                    </span>
+
+                                    <span>
+
+                                        :
+
+                                    </span>
+
+                                    <span id="detailAboutSummary">
+
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <span class="label">
+
+                                        Location
+
+                                    </span>
+
+                                    <span>
+
+                                        :
+
+                                    </span>
+
+                                    <span id="detailLocation">
+
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <span class="label">
+
+                                        Status
+
+                                    </span>
+
+                                    <span>
+
+                                        :
+
+                                    </span>
+
+                                    <span id="detailStatus">
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <button id="detailResumeButton"
+                                    class="profile-btn">
+
+                                View Resume
+
+                            </button>
+
+                            <button id="compactprofileButton"
+                                    class="profile-btn"
+                                    onclick="closeAboutDetailedView()">
+
+                                Back to Dialog box
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="about-info-card"
+                        id="languageCard">
+
+                        <div class="card-header">
+
+                            Languages
+
+                        </div>
+
+                        <div class="card-body"
+                            id="detailLanguages">
+
+                        </div>
+
+                    </div>
+
+                    <div class="about-bottom-grid">
+
+                        <div class="about-info-card"
+                            id="domainCard">
+
+                            <div class="card-header">
+
+                                Domains & Interests
+
+                            </div>
+
+                            <div class="card-body"
+                                id="detailDomains">
+
+                            </div>
+
+                        </div>
+
+                        <div class="about-info-card"
+                            id="strengthCard">
+
+                            <div class="card-header">
+
+                                Strengths
+
+                            </div>
+
+                            <div class="card-body"
+                                id="detailStrengths">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                    <div class="about-detail-middle">
+
+                        <div class="about-info-card"
+                            id="toolCard">
+
+                            <div class="card-header">
+
+                                Tools
+
+                            </div>
+
+                            <div class="card-body"
+                                id="detailTools">
+
+                            </div>
+
+                        </div>
+
+                        <div class="about-info-card"
+                            id="frameworkCard">
+
+                            <div class="card-header">
+
+                                Frameworks
+
+                            </div>
+
+                            <div class="card-body"
+                                id="detailFrameworks">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <div class="about-detail-right">
+
+                    <div class="about-info-card about-information-card"
+                        id="informationCard">
+
+                        <h3>
+
+                            info
+
+                        </h3>
+
+                        <div id="detailinformation">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="window certificate-window"
+        id="certificateWindow">
+
+        <div class="window-header">
+
+            <span>
+
+                Certificates
+
+            </span>
+
+            <div class="window-buttons">
+
+                <button onclick="minimizeWindow('certificateWindow')">
+
+                    _
+
+                </button>
+
+                <button onclick="closeWindow('certificateWindow')">
+
+                    X
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="certificate-toolbar">
+            
+
+            <div class="toolbar-left">
+
+                Total Certificates:
+                <span id="totalCertificates">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="toolbar-right">
+
+                <button
+                    id="certificateFavoriteBtn"
+                    class="favorite-btn"
+                    onclick="
+                        toggleFavorites(
+                            'certificateFavoriteBtn',
+                            showFavoriteCertificates,
+                            filterCertificates
+                        )
+                    ">
+
+                    See Favorites
+                
+                </button>
+
+                <select class="certificate-filter">
+
+                    <option>
+
+                        Filter
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="certificate-body"
+            id="certificateBody">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="window research-window"
+        id="researchWindow">
+
+        <div class="window-header">
+
+            <span>
+
+                Research Papers
+
+            </span>
+
+            <div class="window-buttons">
+
+                <button onclick="minimizeWindow('researchWindow')">
+
+                    _
+
+                </button>
+
+                <button onclick="closeWindow('researchWindow')">
+
+                    X
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="projects-body">
+
+            <div class="project-header">
+
+                <span>
+                    Study/Research Papers
+                </span>
+
+                <div class="project-header-buttons">
+
+                    <button
+                        id="researchFavoriteBtn"
+                        class="favorite-btn"
+                        onclick="
+                            toggleFavorites(
+                                'researchFavoriteBtn',
+                                showFavoriteResearch,
+                                filterResearch
+                            )
+                        ">
+                        See Favorites
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="project-table-container">
+
+                <table class="project-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                No.
+
+                            </th>
+
+                            <th>
+
+                                Title
+
+                            </th>
+
+                            <th>
+
+                                <select id="researchCategoryFilter"
+                                        onchange="filterResearch()">
+
+                                    <option value="">
+
+                                        Category
+
+                                    </option>
+
+                                </select>
+
+                            </th>
+
+                            <th>
+
+                                <select id="researchYearFilter"
+                                        onchange="filterResearch()">
+
+                                    <option value="">
+
+                                        Year
+
+                                    </option>
+
+                                </select>
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="researchTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    
+    </div>
+
+
+
+
+
+</body>
+
+</html>
